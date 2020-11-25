@@ -8,5 +8,11 @@
       "updatedAt": 1606328877959
     }
   ],
-  "users": []
+  "users": [
+    {
+      "email": "test@mail.com",
+      "password": "$2a$10$x/CWvTCGROP.RGzmBxEipuW7DnqQ1H6u28nEeGgmk3oE9R2Wtd9AO",
+      "id": 1
+    }
+  ]
 }

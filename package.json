@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "api": "cd api && node server -m ../node_modules/json-server-auth"
+    "api": "cd api && json-server db.json -m ../node_modules/json-server-auth"
   },
   "private": true,
   "dependencies": {
