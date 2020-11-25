@@ -26,7 +26,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { appInitializer } from './initalisers/appInitailier';
 import { AuthService } from './Auth/auth.service';
 import { JwtInterceptor } from './Auth/interceptor';
-import {UnauthorizedInterceptor} from './Auth/unauthorised'
+import {UnauthorizedInterceptor} from './Auth/unauthorised';
+import { HeaderComponent } from './header/header.component'
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import {UnauthorizedInterceptor} from './Auth/unauthorised'
     EditTodoComponent,
     AddTodoComponent,
     TodoListComponent,
+    HeaderComponent,
     
 
     

@@ -6,8 +6,6 @@ import { ApplicationUser } from '../models/application-user';
 import { Router } from '@angular/router';
 interface LoginResult {
     email: string;
-    role: string;
-    originalUserName: string;
     accessToken: string;
     refreshToken: string;
   }
@@ -32,8 +30,6 @@ interface LoginResult {
           this.http.get<LoginResult>(`${this.apiUrl}/user`).subscribe((x) => {
             this._user.next({
               email: x.email,
-              role: x.role,
-              originalUserName: x.originalUserName,
             });
           });
         }
@@ -55,8 +51,6 @@ interface LoginResult {
           map((x) => {
             this._user.next({
               email: x.email,
-              role: x.role,
-              originalUserName: x.originalUserName,
             });
             this.setLocalStorage(x);
             this.startTokenTimer();
@@ -67,7 +61,7 @@ interface LoginResult {
   
     logout() {
       this.http
-        .post<unknown>(`${this.apiUrl}/logout`, {})
+        .post<LoginResult>(`${this.apiUrl}/logout`, {})
         .pipe(
           finalize(() => {
             this.clearLocalStorage();
@@ -78,7 +72,12 @@ interface LoginResult {
         )
         .subscribe();
     }
-  
+    isLoggedIn() {
+      if (this._user == null) {
+        return false;
+      }
+      return true;
+    }
     refreshToken() {
       const refreshToken = localStorage.getItem('refresh_token');
       if (!refreshToken) {
@@ -92,8 +91,6 @@ interface LoginResult {
           map((x) => {
             this._user.next({
               email: x.email,
-              role: x.role,
-              originalUserName: x.originalUserName,
             });
             this.setLocalStorage(x);
             this.startTokenTimer();
