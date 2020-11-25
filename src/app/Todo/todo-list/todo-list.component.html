@@ -46,5 +46,9 @@
       <tr mat-header-row *matHeaderRowDef="tableColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: tableColumns"></tr>
     </table>
-   
+    <div class="add-button">
+        <button mat-raised-button color="warn" (click)="addDialog()">
+          Add
+        </button>
+       </div>
   </div>
