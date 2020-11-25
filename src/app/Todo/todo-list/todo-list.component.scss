@@ -1,0 +1,35 @@
+.table-wrapper {
+    margin: 100px;
+  }
+  table {
+    width: 100%;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+  
+  .mat-table {
+    width: 800px;
+  }
+  
+  th {
+    border-left: 2px #eee solid;
+  }
+  th p {
+    margin: 20px;
+  }
+  td {
+    border-left: 2px #eee solid;
+  }
+  td p {
+    margin: 20px;
+  }
+  
+  td button {
+    margin: 10px;
+  }
+  .add-button{
+    padding: 20px;
+    text-align: right;
+  }
