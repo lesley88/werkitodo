@@ -47,7 +47,7 @@ export class CrudService {
   }  
 
   addTodo(data): Observable<Todo> {
-    return this.httpClient.post<Todo>(this.endpoint + '/todo-list', JSON.stringify(data), this.httpHeader)
+    return this.httpClient.post<Todo>(this.endpoint + '/todo-list/', JSON.stringify(data), this.httpHeader)
     .pipe(
       retry(1),
       catchError(this.processError)
@@ -55,7 +55,7 @@ export class CrudService {
   }  
 
   updateTodo(id, data): Observable<Todo> {
-    return this.httpClient.put<Todo>(this.endpoint + '/todo-list' + id, JSON.stringify(data), this.httpHeader)
+    return this.httpClient.put<Todo>(this.endpoint + '/todo-list/' + id, JSON.stringify(data), this.httpHeader)
     .pipe(
       retry(1),
       catchError(this.processError)

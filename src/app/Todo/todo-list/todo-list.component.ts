@@ -12,7 +12,7 @@ import { AddTodoComponent } from '../add-todo/add-todo.component';
 })
 export class TodoListComponent implements OnInit {
 
-  tableColumns  :  string[] = ['ID','title', 'description'];
+  tableColumns  :  string[] = ['ID','title', 'description','createdAt', 'updatedAt','edit', 'delete'];
   index: number;
   id: number;
   Todos: any = [];

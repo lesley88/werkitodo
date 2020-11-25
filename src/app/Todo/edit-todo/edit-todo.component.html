@@ -1,1 +1,33 @@
-<p>edit-todo works!</p>
+<h2 mat-dialog-title>Todo {{todoObj.id}} : {{todoObj.title}}</h2>
+
+    <form #f="ngForm"  class="mat-dialog-content" >
+        <mat-form-field >
+          <mat-label><h2>Title</h2></mat-label>
+          <input type="text" matInput [formControl]="textFormControl"
+          [(ngModel)]="todoObj.title"
+          [errorStateMatcher]="matcher"
+                 placeholder="Ex. Buy Groceries">
+      
+          <mat-error *ngIf="textFormControl.hasError('required')">
+            Title is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field >
+            <mat-label><h2>Description</h2></mat-label>
+            <input type="text" matInput [formControl]="descriptionFormControl"
+            [(ngModel)]="todoObj.description"
+            [errorStateMatcher]="matcher"
+                   placeholder="Ex. Tomatoe, Soap bar">
+            
+            <mat-error *ngIf="descriptionFormControl.hasError('required')">
+              Description are <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+       <br/>
+           
+          
+    </form>
+      <mat-dialog-actions>
+        <button class="mat-raised-button" (click)="close()">Close</button>
+       <button mat-raised-button color="primary" (click)="save(todoObj.id, todoObj)" [disabled]="todoObj.title === '' || todoObj.description === ''" >Save</button>
+    </mat-dialog-actions>
